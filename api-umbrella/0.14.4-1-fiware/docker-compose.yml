@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  umbrella:
+    image: martel/api-umbrella:0.14.4-1-fiware
+    ports:
+      - "80:80"
+      - "443:443"
