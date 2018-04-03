@@ -1,0 +1,12 @@
+version: '3'
+services:
+  mqtt-panel-webserver:
+    image: "mqtt-panel-webserver"
+    build:
+      context: ./build-container
+      dockerfile: Dockerfile.mqtt-panel-webserver
+    ports:
+     - "8080:8080"
+    environment:
+     - MQTT_SERVER=${MQTT_SERVER}
+     - MQTT_PORT=${MQTT_PORT}
