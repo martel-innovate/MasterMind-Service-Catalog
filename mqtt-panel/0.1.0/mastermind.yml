@@ -16,3 +16,9 @@ environment_variables:
     required: true
     managed: true
     default: 3000
+  - variable: MQTT_PANEL_PORT
+    name: MQTT Panel Port
+    description: Port on which MQTT Panel service will be run.
+    required: true
+    managed: true
+    default: 3000
