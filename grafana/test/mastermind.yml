@@ -1,0 +1,5 @@
+name: grafana
+version: test
+description: Grafana test stack with QuantumLeap, Crate, Mongo and Orion
+protocol_type: HTTP
+ngsi_version: 1
