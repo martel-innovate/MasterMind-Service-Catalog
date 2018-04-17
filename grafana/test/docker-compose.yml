@@ -14,6 +14,8 @@ services:
       interval: 1m
       timeout: 10s
       retries: 3
+    networks:
+      - backend
 
   mongo:
     image: mongo:3.2
@@ -21,6 +23,8 @@ services:
       - "27017:27017"
     volumes:
       - mongodata:/data/db
+    networks:
+      - backend
 
   quantumleap:
     image: smartsdk/quantumleap
@@ -32,6 +36,8 @@ services:
       - crate
     environment:
       - CRATE_HOST=crate
+    networks:
+      - backend
 
   crate:
     image: crate:1.0.5
@@ -43,6 +49,8 @@ services:
     command: -Ccluster.name=democluster -Chttp.cors.enabled=true -Chttp.cors.allow-origin="*"
     volumes:
       - cratedata:/data
+    networks:
+      - backend
 
   grafana:
     image: grafana/grafana
@@ -52,12 +60,19 @@ services:
       - GF_INSTALL_PLUGINS=crate-datasource,grafana-clock-panel,grafana-worldmap-panel
     depends_on:
       - crate
+    networks:
+      - backend
 
 volumes:
   mongodata:
+    external: false
   cratedata:
+    external: false
 
 networks:
     default:
         driver_opts:
             com.docker.network.driver.mtu: 1400
+    backend:
+        driver: overlay
+        external: true
