@@ -60,7 +60,7 @@ secrets:
 volumes:
   # External true ensures that the volume is not re-created if already present
   mongodata:
-    external: true
+    external: false
 
 networks:
     default:
