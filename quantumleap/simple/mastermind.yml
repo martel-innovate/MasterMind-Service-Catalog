@@ -1,0 +1,5 @@
+name: quantumleap
+version: test
+description: Simple Quantumleap recipe with included Crate database
+protocol_type: HTTP
+ngsi_version: 1

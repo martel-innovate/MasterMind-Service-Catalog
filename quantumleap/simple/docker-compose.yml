@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  quantumleap:
+    image: smartsdk/quantumleap
+    ports:
+      - "8668:8668"
+    depends_on:
+      - crate
+    environment:
+      - CRATE_HOST=crate
+    networks:
+      - backend
+
+  crate:
+    image: crate:1.0.5
+    ports:
+      # Admin UI
+      - "4200:4200"
+      # Transport protocol
+      - "4300:4300"
+    command: -Ccluster.name=democluster -Chttp.cors.enabled=true -Chttp.cors.allow-origin="*"
+    volumes:
+      - cratedata:/data
+    networks:
+      - backend
+
+volumes:
+  cratedata:
+    external: false
+
+networks:
+    default:
+        driver_opts:
+            com.docker.network.driver.mtu: 1400
+    backend:
+        driver: overlay
+        external: true
