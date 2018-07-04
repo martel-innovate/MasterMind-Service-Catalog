@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  elasticsearch:
+    image: centerforopenscience/elasticsearch:5.4
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - backend
+    environment:
+      - discovery.zen.minimum_master_nodes=1
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - xpack.monitoring.enabled=false
+      - xpack.ml.enabled=false
+      - xpack.graph.enabled=false
+      - xpack.watcher.enabled=false
+    volumes:
+      - elk:/usr/share/elasticsearch/data
+volumes:
+  elk:
+    external: false
+networks:
+  default:
+    driver_opts:
+      com.docker.network.driver.mtu: 1500
+  backend:
+    driver: overlay
+    external: true
