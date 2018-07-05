@@ -9,13 +9,13 @@ services:
     networks:
       - backend
     environment:
-      - discovery.zen.minimum_master_nodes=1
-      - discovery.type=single-node
-      - xpack.security.enabled=false
-      - xpack.monitoring.enabled=false
-      - xpack.ml.enabled=false
-      - xpack.graph.enabled=false
-      - xpack.watcher.enabled=false
+      - discovery.zen.minimum_master_nodes=${MINIMUM_MASTER_NODES}
+      - discovery.type=${DISCOVERY_TYPE}
+      - xpack.security.enabled=${SECURITY_ENABLED}
+      - xpack.monitoring.enabled=${MONITORING_ENABLED}
+      - xpack.ml.enabled=${ML_ENABLED}
+      - xpack.graph.enabled=${GRAPH_ENABLED}
+      - xpack.watcher.enabled=${WATCHER_ENABLED}
     volumes:
       - elk:/usr/share/elasticsearch/data
 volumes:
