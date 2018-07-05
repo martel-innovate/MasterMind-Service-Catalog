@@ -8,7 +8,7 @@ services:
     networks:
       - backend
     environment:
-      - DJANGO_SETTINGS_MODULE=select4cities.settings.docker-compose-deployment
+      - DJANGO_SETTINGS_MODULE=select4cities.settings.docker_compose_deployment
       - LOCAL="True"
       - ALLOWED_HOST=${ALLOWED_HOST}
       - DEVELOPER_EMAIL=${DEVELOPER_EMAIL}
