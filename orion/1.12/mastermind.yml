@@ -1,0 +1,32 @@
+name: orion
+version: 1.12
+description: MongoDB Replicaset to work with Fiware IoT Services
+protocol_type: HTTP
+ngsi_version: 1
+environment_variables:
+  - variable: ORION_LOG_LEVEL
+    name: Orion Log Level
+    description: The Logging level for Orion (e.g. DEBUG)
+    required: true
+    managed: true
+    default: DEBUG
+  - variable: REPLICASET_NAME
+    name: Mongo Replicaset Name
+    description: The name of the Mongo replicaset to use
+    required: true
+    managed: true
+    default: rs
+  - variable: DOCKER_MTU
+    name: Docker MTU
+    description: The Docker MTU to use
+    required: true
+    managed: true
+    default: 1400
+services:
+  - service_type: mongo
+    name: Mongo Db Host
+    description: The host of the Mongo DB Replicaset to connect to
+    required: true
+    managed: true
+    retrieve: endpoint
+    as: MONGO_SERVICE_URI
