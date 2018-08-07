@@ -2,7 +2,7 @@ version: '3'
 
 services:
   orion:
-    image: fiware/orion:1.12.0
+    image: fiware/orion:${ORION_VERSION_NUMBER}
     ports:
       - "1026:1026"
     command: -logLevel ${ORION_LOG_LEVEL} -dbhost ${MONGO_SERVICE_URI} -rplSet ${REPLICASET_NAME} -dbTimeout 10000

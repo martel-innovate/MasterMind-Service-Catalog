@@ -1,13 +1,19 @@
 name: orion
-version: 1.12
-description: MongoDB Replicaset to work with Fiware IoT Services
+version: ha
+description: Orion Context Broker deployment in High Availability
 protocol_type: HTTP
 ngsi_version: 1
 environment_variables:
+  - variable: ORION_VERSION_NUMBER
+    name: Orion Version Number
+    description: The Number of the Version of Orion to use (e.g 1.12.0)
+    required: false
+    managed: true
+    default: 1.12.0
   - variable: ORION_LOG_LEVEL
     name: Orion Log Level
     description: The Logging level for Orion (e.g. DEBUG)
-    required: true
+    required: false
     managed: true
     default: DEBUG
   - variable: REPLICASET_NAME
@@ -25,7 +31,7 @@ environment_variables:
 services:
   - service_type: mongo
     name: Mongo Db Host
-    description: The host of the Mongo DB Replicaset to connect to
+    description: The host of the Mongo DB to connect to
     required: true
     managed: true
     retrieve: endpoint
