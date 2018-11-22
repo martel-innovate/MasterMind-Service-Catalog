@@ -1,5 +1,5 @@
 name: iotagent-manager
-version: latest
+version: simple
 description: IoT Manager for IoT Agents, allowing to manage multiple agents with different protocols all at once.
 protocol_type: HTTP
 ngsi_version: 1
