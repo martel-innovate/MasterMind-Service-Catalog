@@ -1,0 +1,30 @@
+name: iotagent-manager
+version: latest
+description: IoT Manager for IoT Agents, allowing to manage multiple agents with different protocols all at once.
+protocol_type: HTTP
+ngsi_version: 1
+environment_variables:
+  - variable: IOTA_SERVER_PORT
+    name: IoT Agent Manager port
+    description: The port to use for the IoT Agent Manager
+    required: true
+    managed: true
+    default: 8082
+  - variable: IOTA_LOG_LEVEL
+    name: IoT Agent Manager Log Level
+    description: The logging level of the manager (e.g. DEBUG)
+    required: true
+    managed: true
+    default: DEBUG
+  - variable: IOTA_MONGO_REPLICASET
+    name: Mongo Replicaset
+    description: The Replicaset of the Mongo Db to use
+    required: true
+    managed: true
+    default: rs
+  - variable: IOTA_MONGO_DB
+    name: Mongo Database
+    description: The name of the Mongo database to use
+    required: true
+    managed: true
+    default: iotagent-manager
