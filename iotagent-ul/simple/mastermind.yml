@@ -22,17 +22,3 @@ environment_variables:
     required: true
     managed: true
     default: 1400
-  - variable: IOTA_MONGO_PORT
-    name: Mongo Port
-    description: The port of the Mongo Db to use
-    required: true
-    managed: true
-    default: 27017
-services:
-  - service_type: mongo
-    name: IoT Mongo Host
-    description: The host of the Mongo Database to connect the agent to
-    required: true
-    managed: true
-    retrieve: endpoint
-    as: IOTA_MONGO_HOST
