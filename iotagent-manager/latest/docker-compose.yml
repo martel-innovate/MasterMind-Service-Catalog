@@ -2,7 +2,7 @@ version: '3'
 
 services:
   iotmanager:
-    image: iotmanager
+    image: telefonicaiot/iotagent-manager:latest
     ports:
       - ${IOTA_SERVER_PORT}:${IOTA_SERVER_PORT}
     environment:
